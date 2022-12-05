@@ -1,16 +1,23 @@
 class array:
 
-	def __init__(self):
+	def __init__(self,cls):
 		self.__arr=[]
+		self.cls=cls
 
-	#setter
-	def add(self,element):
-		self.__arr+=[element]
+	def disp(self):
+		print(self.__arr)
 
-	#getter
-	@property
-	def display(self):
-		return list(self.__arr) #self._arr is display : False
+
+	def add(self,elm):
+		if isinstance(elm,self.cls):
+			self.__arr+=[elm]
+		else:
+			raise TypeError(f'Array of class {self.cls.__name__} : Invalid type {type(elm).__name__}')
+
+	def rotate(self,n):
+		if n<=len(self.__arr):
+			return self.__arr[n:]+self.__arr[:n]
+
 
 	def insert(self,element:int,index:int):
 		for i in range(len(self.__arr)):
@@ -27,15 +34,16 @@ class array:
 
 
 
-a=array()
+a=array(int)
 a.add(20)
 a.add(33)
-a.add(65)
+#a.add('65')
 a.add(103)
 a.add(2)
-print(a.display)
-a.display[4]=5
+a.disp()
 a.insert(3,2)
 print(a.search(33),a.search(36))
-print(a.display)
+a.disp()
+b=a.rotate(3)
+print(b)
 	
