@@ -42,5 +42,16 @@ int main()
 
 	}
 
+
+
+	//pgm3
+	//sorted array
+
+	for (i=0;i<len_arr;i++)
+	{
+		
+		
+	}
+
 	return 0;
 }
